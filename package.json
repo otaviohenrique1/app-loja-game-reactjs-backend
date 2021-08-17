@@ -1,0 +1,15 @@
+{
+  "name": "app-loja-game-reactjs-backend",
+  "version": "1.0.0",
+  "description": "backend da aplicacao app-loja-game-reactjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nodejs",
+    "Typescript"
+  ],
+  "author": "Otavio Henrique",
+  "license": "ISC"
+}
