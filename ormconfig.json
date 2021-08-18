@@ -4,7 +4,7 @@
    "port": 3306,
    "username": "root",
    "password": "sofia1234",
-   "database": "app-loja-game-reactjs-bd",
+   "database": "app_loja_game_reactjs_bd",
    "synchronize": true,
    "logging": false,
    "entities": [
