@@ -23,7 +23,7 @@ export default {
     let data_user = {
       id: existingUser.id,
       nome: existingUser.nome,
-      email: existingUser.email,
+      // email: existingUser.email,
     };
     return response.status(200).json({ message: "Logado com sucesso!", data_user });
   },
