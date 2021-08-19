@@ -34,7 +34,7 @@ export default {
   async show(request: Request, response: Response) {
     const { id } = request.params;
     const usuarioRepository = getRepository(Usuarios);
-    const usuario = await usuarioRepository.findOneOrFail(id, { relations: ['usuarios'] });
+    const usuario = await usuarioRepository.findOneOrFail(id);
     return response.json(usuarioView.render(usuario));
   },
   async create(request: Request, response: Response) {
