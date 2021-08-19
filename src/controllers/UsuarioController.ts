@@ -28,9 +28,7 @@ export default {
   },
   async index(request: Request, response: Response) {
     const usuarioRepository = getRepository(Usuarios);
-    const usuario = await usuarioRepository.find({
-      relations: ['usuarios']
-    });
+    const usuario = await usuarioRepository.find();
     return response.json(usuarioView.renderMany(usuario));
   },
   async show(request: Request, response: Response) {
@@ -40,9 +38,14 @@ export default {
     return response.json(usuarioView.render(usuario));
   },
   async create(request: Request, response: Response) {
-    const { nome, perfil, email, senha, sexo, data_nascimento, pais, cidade, estado, resumo, celular, url_personalizado, data_cadastro } = request.body;
+    const { nome, perfil, email, senha, sexo, data_nascimento, pais,
+      cidade, estado, resumo, celular, url_personalizado, data_cadastro } = request.body;
+    
     const usuarioRepository = getRepository(Usuarios);
-    const data = { nome, perfil, email, senha, sexo, data_nascimento, pais, cidade, estado, resumo, celular, url_personalizado, data_cadastro };
+
+    const data = { nome, perfil, email, senha, sexo, data_nascimento, pais,
+      cidade, estado, resumo, celular, url_personalizado, data_cadastro };
+    
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
       perfil: Yup.string().required(),
@@ -58,11 +61,15 @@ export default {
       url_personalizado: Yup.string().required(),
       data_cadastro: Yup.date().required()
     });
+    
     await schema.validate(data, {
       abortEarly: false
     });
+    
     const usuario = usuarioRepository.create(data);
+    
     await usuarioRepository.save(usuario);
+    
     return response.status(201).json(usuario);
   },
   async delete(request: Request, response: Response) {
