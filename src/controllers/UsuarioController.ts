@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import { getRepository } from "typeorm";
 import * as Yup from "yup";
-import Usuario from "../entity/Usuario";
+import Usuarios from "../entity/Usuarios";
 import usuarioView from "../views/UsuarioView";
 
 export default {
   async login(request: Request, response: Response) {
     const { email, senha } = request.body;
     let existingUser: any;
-    const usuarioRepository = getRepository(Usuario);
+    const usuarioRepository = getRepository(Usuarios);
     try {
       existingUser = await usuarioRepository.findOne({ email: email });
     } catch (error) {
@@ -23,12 +23,11 @@ export default {
     let data_user = {
       id: existingUser.id,
       nome: existingUser.nome,
-      // email: existingUser.email,
     };
     return response.status(200).json({ message: "Logado com sucesso!", data_user });
   },
   async index(request: Request, response: Response) {
-    const usuarioRepository = getRepository(Usuario);
+    const usuarioRepository = getRepository(Usuarios);
     const usuario = await usuarioRepository.find({
       relations: ['usuarios']
     });
@@ -36,13 +35,13 @@ export default {
   },
   async show(request: Request, response: Response) {
     const { id } = request.params;
-    const usuarioRepository = getRepository(Usuario);
+    const usuarioRepository = getRepository(Usuarios);
     const usuario = await usuarioRepository.findOneOrFail(id, { relations: ['usuarios'] });
     return response.json(usuarioView.render(usuario));
   },
   async create(request: Request, response: Response) {
     const { nome, perfil, email, senha, sexo, data_nascimento, pais, cidade, estado, resumo, celular, url_personalizado, data_cadastro } = request.body;
-    const usuarioRepository = getRepository(Usuario);
+    const usuarioRepository = getRepository(Usuarios);
     const data = { nome, perfil, email, senha, sexo, data_nascimento, pais, cidade, estado, resumo, celular, url_personalizado, data_cadastro };
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
@@ -68,13 +67,13 @@ export default {
   },
   async delete(request: Request, response: Response) {
     const { id } = request.params;
-    const usuarioRepository = getRepository(Usuario);
+    const usuarioRepository = getRepository(Usuarios);
     const usuario = await usuarioRepository.delete(id);
     return response.status(200).json(usuario);
   },
   async update(request: Request, response: Response) {
     const { id, nome, perfil, email, senha, sexo, data_nascimento, pais, cidade, estado, resumo, celular, url_personalizado } = request.body;
-    const usuarioRepository = getRepository(Usuario);
+    const usuarioRepository = getRepository(Usuarios);
     const data = { nome, perfil, email, senha, sexo, data_nascimento, pais, cidade, estado, resumo, celular, url_personalizado };
     const schema = Yup.object().shape({
       nome: Yup.string().required(),

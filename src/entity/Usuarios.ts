@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 @Entity()
-export default class Usuario {
+export default class Usuarios {
   @PrimaryGeneratedColumn()
   id: number;
 

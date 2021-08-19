@@ -1,7 +1,7 @@
-import Usuario from "../entity/Usuario";
+import Usuarios from "../entity/Usuarios";
 
 export default {
-  render(usuario: Usuario) {
+  render(usuario: Usuarios) {
     return {
       id: usuario.id,
       perfil: usuario.perfil,
@@ -17,7 +17,7 @@ export default {
       data_cadastro: usuario.data_cadastro,
     };
   },
-  renderMany(usuarios: Usuario[]) {
+  renderMany(usuarios: Usuarios[]) {
     return usuarios.map(usuario => this.render(usuario));
   }
 };
