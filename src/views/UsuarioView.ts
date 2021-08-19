@@ -4,6 +4,7 @@ export default {
   render(usuario: Usuarios) {
     return {
       id: usuario.id,
+      nome: usuario.nome,
       perfil: usuario.perfil,
       email: usuario.email,
       senha: usuario.senha,
@@ -14,6 +15,7 @@ export default {
       estado: usuario.estado,
       resumo: usuario.resumo,
       celular: usuario.celular,
+      url_personalizado: usuario.url_personalizado,
       data_cadastro: usuario.data_cadastro,
     };
   },
