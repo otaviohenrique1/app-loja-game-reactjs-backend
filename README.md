@@ -92,3 +92,15 @@
 
 ## Iniciar a aplicacao
   npm start ou yarn start
+
+## Comandos do mysql
+  create database if not exists app_loja_game_reactjs_bd;
+  use app_loja_game_reactjs_bd;
+  select * from usuarios;
+
+  insert into usuarios (nome, perfil, email, senha, data_nascimento, sexo, celular,
+  cidade, estado, pais, resumo, url_personalizado, data_cadastro)
+  values ("Juca", "juca123", "juca@email.com", "0123456789", "1988-10-19", "Masculino", 129958754110,
+  "Rio de Janeiro", "Rio de Janeiro", "Brasil", "Jogo qualquer jogo", "app_loja_game.com/laslkdklasdlkasjdla", "2021-08-18");
+
+  /* drop database app_loja_game_reactjs_bd; */
