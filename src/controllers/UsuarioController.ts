@@ -17,12 +17,14 @@ export default {
     }
     if (!existingUser || existingUser.senha !== senha) {
       const mensagemErro = "Dados invalidos";
-      console.log(`${email}, ${senha}`);
+      // console.log(`${email}, ${senha}`);
       return response.status(401).json({ message: mensagemErro });
     }
     let data_user = {
       id: existingUser.id,
       nome: existingUser.nome,
+      perfil: existingUser.perfil,
+      email: existingUser.email,
     };
     return response.status(200).json({ message: "Logado com sucesso!", data_user });
   },
