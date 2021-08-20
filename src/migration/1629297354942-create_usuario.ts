@@ -35,7 +35,7 @@ export class createUsuario1629297354942 implements MigrationInterface {
         },
         {
           name: 'data_nascimento',
-          type: 'datetime'
+          type: 'date'
         },
         {
           name: 'pais',
@@ -63,7 +63,7 @@ export class createUsuario1629297354942 implements MigrationInterface {
         },
         {
           name: 'data_cadastro',
-          type: 'datetime'
+          type: 'date'
         },
       ]
     }));
