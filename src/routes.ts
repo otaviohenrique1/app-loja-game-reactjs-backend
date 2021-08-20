@@ -7,7 +7,7 @@ routes.get('/usuarios', usuarioController.index);
 routes.get('/usuarios/:id', usuarioController.show);
 routes.post('/usuarios/login', usuarioController.login);
 routes.post('/usuarios', usuarioController.create);
-routes.put('/usuarios/:id', usuarioController.update);
+routes.patch('/usuarios/:id', usuarioController.update);
 routes.delete('/usuarios/:id', usuarioController.delete);
 
 export default routes;
