@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { getConnection, getRepository } from "typeorm";
+import { getRepository } from "typeorm";
+// import { getConnection } from "typeorm";
 import * as Yup from "yup";
 import Usuarios from "../entity/Usuarios";
 import usuarioView from "../views/UsuarioView";
